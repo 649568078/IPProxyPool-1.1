@@ -49,6 +49,8 @@ class MongoHelper(ISqlHelper):
                 value = conditions.get(condition_name, None)
                 if value:
                     conditions[condition_name] = int(value)
+            # 花生改，剔除conditions的count
+            del conditions['count']
         else:
             conditions = {}
         items = self.proxys.find(conditions, limit=count).sort(
@@ -68,5 +70,4 @@ if __name__ == '__main__':
     items = sqlhelper.proxys.find({'types': 0})
     for item in items:
         print(item)
-    print( sqlhelper.select(None,{'types':u'0'}))
-
+    print(sqlhelper.select(None, {'types': u'0'}))

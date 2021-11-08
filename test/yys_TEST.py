@@ -1,5 +1,14 @@
-import sys
+import requests
+from lxml import etree
 
-str = 'IPProxyPool----->>>>>>>>Success ip num :%d,Fail ip num:%d'
-sys.stdout.write(str + "\r")
-sys.stdout.flush()
+
+url = "https://www.w3school.com.cn/xpath/xpath_axes.asp"
+res = requests.get(url).text
+html = etree.HTML(res)
+a = html.xpath("(//table[@class='dataintable'])[1]/tr")
+print(a)
+
+for i in a:
+    s = i.xpath(".//td")
+    print(s)
+    print(len(s))

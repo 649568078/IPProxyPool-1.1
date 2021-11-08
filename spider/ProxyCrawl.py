@@ -65,6 +65,7 @@ class ProxyCrawl(object):
 
     def crawl(self, parser):
         html_parser = Html_Parser()
+        #print(parser)
         for url in parser['urls']:
             response = Html_Downloader.download(url)
             if response is not None:

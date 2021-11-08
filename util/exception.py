@@ -10,5 +10,5 @@ class Test_URL_Fail(Exception):
 
 class Con_DB_Fail(Exception):
     def __str__(self):
-        str = "使用DB_CONNECT_STRING:%s--连接数据库失败" % config.DB_CONNECT_STRING
+        str = "使用DB_CONNECT_STRING:%s--连接数据库失败" % config.DB_CONFIG["DB_CONNECT_STRING"]
         return str
